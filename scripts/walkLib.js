@@ -27,7 +27,7 @@ walker.on("end", () => {
     if (f.root !== lastRoot) {
       fs.appendFileSync(fd, `\n// ${f.root}\n`);
     }
-    fs.appendFileSync(fd, `export ${f.name} from '${f.path}';\n`);
+    fs.appendFileSync(fd, `export ${f.name} from "${f.path}";\n`);
     return f.root;
   }, "");
 });
