@@ -35,6 +35,7 @@ test("with higher quantity -> take max", async () => {
     contract.mockInspect.instance.takeOrder,
   ).toHaveBeenCalledWith(6870, new BigNumber("8555051760000000000"), {
     from: "0xMANAGER",
+    gas: 60000,
   });
 });
 
@@ -52,5 +53,6 @@ test("with lower quantity -> take as specified", async () => {
     contract.mockInspect.instance.takeOrder,
   ).toHaveBeenCalledWith(6870, new BigNumber("1000000000000000000"), {
     from: "0xMANAGER",
+    gas: 60000,
   });
 });

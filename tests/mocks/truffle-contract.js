@@ -142,6 +142,9 @@ const instance = {
 instance.setupFund.estimateGas = jest.fn(() => 650000);
 instance.approve.estimateGas = jest.fn(() => 50000);
 instance.transferFrom.estimateGas = jest.fn(() => 50000);
+instance.transfer.estimateGas = jest.fn(() => 50000);
+instance.takeOrder.estimateGas = jest.fn(() => 50000);
+instance.makeOrder.estimateGas = jest.fn(() => 50000);
 
 const contract = {
   setProvider: jest.fn(),

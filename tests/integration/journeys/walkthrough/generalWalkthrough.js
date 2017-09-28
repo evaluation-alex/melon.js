@@ -17,7 +17,7 @@ import takeOrderFromFund from "../../../../lib/fund/transactions/takeOrderFromFu
 import performCalculations from "../../../../lib/fund/calls/performCalculations";
 import redeem from "../../../../lib/participation/transactions/redeem";
 
-const INITIAL_SUBSCRIBE_QUANTITY = 100;
+const INITIAL_SUBSCRIBE_QUANTITY = 5;
 const REDEEM_QUANTITY = 5;
 
 const shared = { etherBalance: {}, participation: {}, melonBalance: {} };
@@ -97,11 +97,15 @@ it(
 
     await awaitDataFeedUpdates(2);
 
+    trace("Awaited two data feed updates");
+
     shared.executedSubscriptionRequest = await executeRequest(
       shared.subscriptionRequest.id,
       shared.vault.address,
       // "0x4c476a34a92cda676654b43c5d5d42879d45e38b",
     );
+
+    trace(`executedSubscriptionRequest ${shared.executedSubscriptionRequest}`);
 
     shared.participation.invested = await getParticipation(
       // "0x4c476a34a92cda676654b43c5d5d42879d45e38b",
